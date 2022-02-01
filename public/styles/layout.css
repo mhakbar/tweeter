@@ -21,11 +21,11 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   
 }
-.container{
+main {
  
   width: 90%;  
   display: flex;
-  align-items: center;
+  margin: auto;
   justify-content: space-between;
   flex-direction: column;
   z-index: 1;

@@ -7,8 +7,13 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 2;
-  background-color: gold;
-  background: url(/images/basketball.png);
+  background-color: #FF0000;
+  
   
 
+}
+
+header {
+  background: url(/images/basketball.png);
+  z-index: -2;
 }
