@@ -8,13 +8,19 @@
   width: 82.5%;
   
   
+  
 
 }
 
 .tweetHeader{
   display:flex;
   flex-direction: row;
+  font-family: sans-serif;
   
+  
+}
+#name{
+  padding-top: 10px;
 }
 
 .tweetFooter {
@@ -48,7 +54,7 @@
   opacity: 0.5;
   box-shadow:yellow;
 }
-
+/* box shadow object not working */
 
 
 
