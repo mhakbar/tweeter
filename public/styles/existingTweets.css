@@ -1,0 +1,54 @@
+.tweetOutline {
+  border: 5px solid black;
+  display: block;
+  padding-left: 5%;
+  padding-right: 0%;
+  margin-left: 12.5%;
+  margin-right:2.5%;
+  width: 82.5%;
+  
+  
+
+}
+
+.tweetHeader{
+  display:flex;
+  flex-direction: row;
+  
+}
+
+.tweetFooter {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: solid black;
+
+}
+
+.tweetIcons{
+  display:flex;
+  align-items: center;
+}
+
+.nameAvatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+#flag:hover{
+  opacity: 0.5;
+  box-shadow: 20px 20px 20px 20px red;
+}
+
+#retweet:hover{
+  opacity: 0.5;
+}
+#heart:hover{
+  opacity: 0.5;
+  box-shadow:yellow;
+}
+
+
+
+

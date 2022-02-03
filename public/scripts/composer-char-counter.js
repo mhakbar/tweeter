@@ -14,13 +14,8 @@ $(document).ready(function() {
       $('.counter').css("color", "red");
     } else {
       $('.counter').css("color", "black");
-
     }
 
-    console.log(counter);
-
-
-    
     counter.innerText = characters;
     
     
