@@ -40,10 +40,10 @@ $(document).ready(() => {
     
   
 
-  const $tweet = $(`<article class="tweetOutline">Hello world</article>`);
+  const $tweet = $(`<article class="tweetOutline"></article>`);
   $tweet.append(`<header class="tweetHeader">
   <div class="nameAvatar">
-  <img src=${tweet.user.avatars}/>
+  <img src="${tweet.user.avatars}"/>
   <span id="name">${tweet.user.name}</span>
 </div>
   <span>${tweet.user.handle}</span>
@@ -71,13 +71,13 @@ const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
-  tweets.forEach((tweet) => {
+  for (let tweet of tweets) {
     const tweetElement = createTweetElement(tweet);
     $('#tweetContainer').append(tweetElement);
 
-  })
+  }
 }
-// renderTweets(data);
+//renderTweets(data);
 
 // $(() => {
   const $inputButton = $('#submit-tweet');
@@ -85,19 +85,38 @@ const renderTweets = function(tweets) {
   
   $('#submit-tweet').on('submit', () => {
     event.preventDefault();
-    console.log("random text");
+    //console.log("random text");
     const serial = $('#submit-tweet').serialize();
     console.log(serial);
 
-    $.post ("/tweets", serial, );
+    $.post ("/tweets", serial, ).then(loadTweets);
+
     
     
     //renderTweets(data);
   })
 // });
 
+const loadTweets = function() {
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function (indexHTML) {
+      console.log('Success: ', renderTweets(indexHTML));
+      //renderTweets(data);
 
 })
 
+}
+loadTweets();
 
+});
+
+// const loadTweets = () => {
+//   $.ajax({
+//     type: "GET",
+//     url: "http://localhost:8080/tweets/",
+//     success: (data) => {
+//       renderTweets(data);
+//     },
+//   });
+// };
 
