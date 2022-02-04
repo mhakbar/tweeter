@@ -35,6 +35,11 @@
 // ]
 
 $(document).ready(() => {
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
 
   const createTweetElement = (tweet) => {
@@ -49,7 +54,7 @@ $(document).ready(() => {
 </div>
   <span>${tweet.user.handle}</span>
 </header>
-<p>${tweet.content.text}</p>
+<p>${escape(tweet.content.text)}</p>
 <footer class="tweetFooter">
   <h4>${timeago.format(tweet.created_at)}</h4>
   <span class="tweetIcons">
