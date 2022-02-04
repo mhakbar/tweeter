@@ -77,8 +77,27 @@ const renderTweets = function(tweets) {
 
   })
 }
-renderTweets(data);
+// renderTweets(data);
+
+// $(() => {
+  const $inputButton = $('#submit-tweet');
+  
+  
+  $('#submit-tweet').on('submit', () => {
+    event.preventDefault();
+    console.log("random text");
+    const serial = $('#submit-tweet').serialize();
+    console.log(serial);
+
+    $.post ("/tweets", serial, );
+    
+    
+    //renderTweets(data);
+  })
+// });
+
 
 })
+
 
 
