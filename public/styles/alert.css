@@ -1,0 +1,8 @@
+.alert {
+  color: red;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  border:thin solid red;
+  height: 85%;
+}

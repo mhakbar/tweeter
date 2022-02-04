@@ -96,9 +96,17 @@ const renderTweets = function(tweets) {
     const tweetPost = $(this).find("#tweet-text").val();
 
   if (tweetPost.length > 140) {
-    alert("Exceeding");
+    // alert("Exceeding");
+    $('.alert-char-exceeding').show();
+    setTimeout(() => {
+      $('.alert-char-exceeding').fadeOut('fast');
+    }, 3000);
   } else if (!tweetPost) {
-    alert("empty");
+    // alert("empty");
+    $('.alert-tweet-blank').show();
+    setTimeout(() => {
+      $('.alert-tweet-blank').fadeOut('fast');
+    },3000)
   }else {
     const serial = $(this).serialize();
     console.log(serial);
@@ -120,6 +128,8 @@ const loadTweets = function() {
 })
 
 }
+$('.alert-char-exceeding').hide();
+$('.alert-tweet-blank').hide();
 loadTweets();
 
 });
