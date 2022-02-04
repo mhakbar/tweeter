@@ -69,35 +69,33 @@ $(document).ready(() => {
 // $('#tweetContainer').append($tweet);
 
 const renderTweets = function(tweets) {
+  $('#tweetContainer').empty();
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
   for (let tweet of tweets) {
     const tweetElement = createTweetElement(tweet);
-    $('#tweetContainer').append(tweetElement);
+    $('#tweetContainer').prepend(tweetElement);
 
   }
 }
 //renderTweets(data);
 
 // $(() => {
-  const $inputButton = $('#submit-tweet');
-  
-
-    
+  const $inputButton = $('#submit-tweet');  
   
   
-  $('#submit-tweet').on('submit', () => {
+  $('#submit-tweet').on('submit', function() {
     event.preventDefault();
     //console.log("random text");
-    const tweetPost = document.forms[0][0].value;
+    const tweetPost = $(this).find("#tweet-text").val();
 
   if (tweetPost.length > 140) {
     alert("Exceeding");
   } else if (!tweetPost) {
     alert("empty");
   }else {
-    const serial = $('#submit-tweet').serialize();
+    const serial = $(this).serialize();
     console.log(serial);
 
     $.post ("/tweets", serial, ).then(loadTweets);
@@ -121,13 +119,4 @@ loadTweets();
 
 });
 
-// const loadTweets = () => {
-//   $.ajax({
-//     type: "GET",
-//     url: "http://localhost:8080/tweets/",
-//     success: (data) => {
-//       renderTweets(data);
-//     },
-//   });
-// };
 
