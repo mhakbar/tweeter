@@ -1,8 +1,30 @@
-.alert {
+main h5 {
   color: red;
   display: flex;
   align-items: center;
   align-content: center;
+  flex-direction: row;
   border:thin solid red;
-  height: 85%;
+  height: 50%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.alert-char-exceeding {
+
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  align-items: center;
+  border:thin solid red;
+  padding-left: 1em;
+
+}
+
+.alert-tweet-blank {
+
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  align-items: center;
+  border:thin solid red;
+  padding-left: 8em;
+
 }

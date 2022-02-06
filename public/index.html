@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/existingTweets.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/alert.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/media.css" type="text/css"/>
 
 
 
@@ -36,7 +37,8 @@
       <i class="fas fa-angle-double-down" id="fa-angle-double-down" ></i></div>
       
     </nav>
-    <header>
+    <header class="c1">
+      
       <div id="avatar">
           <img src="/images/profile-hex.png"> 
           
@@ -45,20 +47,21 @@
       <div>
           <h2>Your Name</h2>
       </div>
+    
   </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <div class="alert">
-        <h5 class="alert-char-exceeding">`Too long! Plz respect our arbitrary limit of 140 characters`</h5>
-        <h5 class="alert-tweet-blank">`Please enter a message`</h5>
+        <h5 class="alert-char-exceeding"><i class="fas fa-exclamation-triangle">Too long! Plz respect our arbitrary limit of 140 characters</i><i class="fas fa-exclamation-triangle"></i></h5>
+        <h5 class="alert-tweet-blank"><i class="fas fa-exclamation-triangle"></i>Please enter a message</i><i class="fas fa-exclamation-triangle"></i> </h5>
       </div>
       <div class="userTweet">
       <section class="new-tweet">
         
         <form name ="submit-tweet" id="submit-tweet">
         <div class="upperHalfTextbox">
-          <h2>Compose Tweet</h2>
+          
         
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         </div>
@@ -71,8 +74,8 @@
         </form>
       </section>
     </div>
-  </main>
     <div id="tweetContainer">
+  </main>
       <!-- <article class="tweetOutline">
         <header class="tweetHeader">
           <div class="nameAvatar">

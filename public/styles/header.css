@@ -1,5 +1,5 @@
 header {
-  height: 580px;
+  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,18 +8,16 @@ header {
   align-items: center;
   z-index: -2;
   background-color: green;
-  
-  
-
-}
-
-header {
   background-image: url(/images/basketball.png);
-  z-index: 2;
+  
 }
 
 .navBar {
   position: fixed;
   top: 0;
   width: 100%;
+  display: none;
 }
+
+
+

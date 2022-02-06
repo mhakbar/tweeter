@@ -28,7 +28,6 @@ main {
   margin: auto;
   justify-content: space-between;
   flex-direction: column;
-  z-index: 1;
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   padding-left: 60px;
