@@ -44,11 +44,12 @@
 
 #flag:hover{
   opacity: 0.5;
-  box-shadow: 20px 20px 20px 20px red;
+  box-shadow:yellow;
 }
 
 #retweet:hover{
   opacity: 0.5;
+  box-shadow:yellow;
 }
 #heart:hover{
   opacity: 0.5;

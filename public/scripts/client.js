@@ -8,31 +8,7 @@
 
 
 
-// Test / driver code (temporary). Eventually will get this from the server.
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
+
 
 $(document).ready(() => {
   const escape = function (str) {
@@ -43,11 +19,11 @@ $(document).ready(() => {
 
 
   const createTweetElement = (tweet) => {
-    
-  
 
-  const $tweet = $(`<article class="tweetOutline"></article>`);
-  $tweet.append(`<header class="tweetHeader">
+
+
+    const $tweet = $(`<article class="tweetOutline"></article>`);
+    $tweet.append(`<header class="tweetHeader">
   <div class="nameAvatar">
   <img src="${tweet.user.avatars}"/>
   <span id="name">${tweet.user.name}</span>
@@ -63,75 +39,91 @@ $(document).ready(() => {
     <i class="fa fa-heart" id="heart"></i>
   </span>
 </footer>`)
-  return $tweet;
-};
+    return $tweet;
+  };
 
 
-// const $tweet = createTweetElement(tweetData);
-// // Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elem
-// $('#tweetContainer').append($tweet);
+  // const $tweet = createTweetElement(tweetData);
+  // // Test / driver code (temporary)
+  // console.log($tweet); // to see what it looks like
+  // // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elem
+  // $('#tweetContainer').append($tweet);
 
-const renderTweets = function(tweets) {
-  $('#tweetContainer').empty();
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
-  for (let tweet of tweets) {
-    const tweetElement = createTweetElement(tweet);
-    $('#tweetContainer').prepend(tweetElement);
+  const renderTweets = function (tweets) {
+    $('#tweetContainer').empty();
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+    for (let tweet of tweets) {
+      const tweetElement = createTweetElement(tweet);
+      $('#tweetContainer').prepend(tweetElement);
 
+    }
   }
-}
-//renderTweets(data);
+  //renderTweets(data);
 
-// $(() => {
-  const $inputButton = $('#submit-tweet');  
-  
-  
-  $('#submit-tweet').on('submit', function() {
+  // $(() => {
+  const $inputButton = $('#submit-tweet');
+
+
+  $('#submit-tweet').on('submit', function () {
     event.preventDefault();
     //console.log("random text");
     const tweetPost = $(this).find("#tweet-text").val();
 
-  if (tweetPost.length > 140) {
-    // alert("Exceeding");
-    $('.alert-char-exceeding').show();
-    setTimeout(() => {
-      $('.alert-char-exceeding').fadeOut('fast');
-    }, 3000);
-  } else if (!tweetPost) {
-    // alert("empty");
-    $('.alert-tweet-blank').show();
-    setTimeout(() => {
-      $('.alert-tweet-blank').fadeOut('fast');
-    },3000)
-  }else {
-    const serial = $(this).serialize();
-    console.log(serial);
+    if (tweetPost.length > 140) {
+      // alert("Exceeding");
+      $('.alert-char-exceeding').show();
+      setTimeout(() => {
+        $('.alert-char-exceeding').fadeOut('fast');
+      }, 3000);
+    } else if (!tweetPost) {
+      // alert("empty");
+      $('.alert-tweet-blank').show();
+      setTimeout(() => {
+        $('.alert-tweet-blank').fadeOut('fast');
+      }, 3000)
+    } else {
+      const serial = $(this).serialize();
+      console.log(serial);
 
-    $.post ("/tweets", serial, ).then(loadTweets);
+      $.post("/tweets", serial,).then(loadTweets);
 
     }
-    
+
     //renderTweets(data);
   })
-// });
+  // });
 
-const loadTweets = function() {
-  $.ajax('/tweets', { method: 'GET' })
-    .then(function (indexHTML) {
-      console.log('Success: ', renderTweets(indexHTML));
-      //renderTweets(data);
+  const loadTweets = function () {
+    $.ajax('/tweets', { method: 'GET' })
+      .then(function (indexHTML) {
+        console.log('Success: ', renderTweets(indexHTML));
+        //renderTweets(data);
 
-})
+      })
 
-}
-$('.alert-char-exceeding').hide();
-$('.alert-tweet-blank').hide();
-loadTweets();
+  }
+  $('.alert-char-exceeding').hide();
+  $('.alert-tweet-blank').hide();
+  loadTweets();
+
+  //Scroll-to-top button
+  $(window).scroll(() => {
+    if ($(this).scrollTop()) {
+      $('#to-top-btn').fadeIn();
+    } else {
+      $('#to-top-btn').fadeOut();
+    }
+  });
+
+  $("#to-top-btn").on('click', () => {
+    $(window).scrollTop(0);
+  });
+
 
 });
+
+
 
 
