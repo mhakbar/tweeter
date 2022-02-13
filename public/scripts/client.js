@@ -34,7 +34,7 @@ $(document).ready(() => {
 <footer class="tweetFooter">
   <h4>${timeago.format(tweet.created_at)}</h4>
   <span class="tweetIcons">
-    <i class="fa fa-flag" idtweetObjg"></i>
+    <i class="fa fa-flag" id="flag"></i>
     <i class="fa fa-retweet" id="retweet"></i>             
     <i class="fa fa-heart" id="heart"></i>
   </span>
@@ -66,8 +66,16 @@ $(document).ready(() => {
   const $inputButton = $('#submit-tweet');
 
 
-  $('#submit-tweet').on('submit', function () {
+  $('#submit-tweet').on('submit', function (event) {
     event.preventDefault();
+    const formdata = $("#submit-tweet");
+
+    if (formdata === null) {
+      $(".alert-tweet-blank").slideDown();
+      return;
+
+    }
+
     //console.log("random text");
     const tweetPost = $(this).find("#tweet-text").val();
 
@@ -87,7 +95,12 @@ $(document).ready(() => {
       const serial = $(this).serialize();
       console.log(serial);
 
-      $.post("/tweets", serial,).then(loadTweets);
+     
+
+      $.post("/tweets", serial,).then(function() {loadTweets();
+        formdata[0].reset();
+        $(".counter").val(140);
+      })
 
     }
 

@@ -6,7 +6,7 @@
   flex-flow: row wrap;
 } */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   body {
     display: flex;
     flex-direction: row;
@@ -20,6 +20,75 @@
   }
 
   .container {
+    flex: 1 1 100%;
+    width: 75%;
+  }
+  #tweetContainer {
+    width: 100%;
+  }
+
+  .navBar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display:flex;
+  }
+
+  header {
+    height: 410px;
+  }
+
+  #tweet-text {
+  
+    margin-top: 198px;
+    
+  }
+
+  .userTweet {
+    width: 100%;
+
+    height: 50%;
+    
+  
+  }
+  .alert-char-exceeding {
+
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    border:thin solid red;
+    padding-left: 1em;
+  
+  }
+  
+  .alert-tweet-blank {
+  
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    border:thin solid red;
+    padding-left: 8em;
+  
+  }
+
+}
+
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 25px;
+  }
+  .c1 {
+    width: 25%;
+    margin-top: 200px;
+    margin-bottom: 200px;
+  }
+
+  .container {
+    flex: 1 1 50%;
     width: 75%;
   }
   #tweetContainer {
@@ -51,6 +120,24 @@
   
   }
 
-}
+  .alert-char-exceeding {
 
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    border:thin solid red;
+    padding-left: 1em;
+  
+  }
+  
+  .alert-tweet-blank {
+  
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    border:thin solid red;
+    padding-left: 8em;
+  
+  }
 
+} */
